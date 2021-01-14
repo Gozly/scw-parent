@@ -1,0 +1,50 @@
+#端口
+server:
+  port: 7000
+
+#  当前模块名称 -- 在注册中心注册时的名称
+spring:
+  application:
+    name: scw-user
+
+#    数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///atcrowdfunding?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat  #开启监控过滤器
+
+#    redis
+  redis:
+    port: 6379
+    host: 192.168.6.135
+    password: 123
+
+#    整合mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
+
+#  eureka的客户端配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+#日志
+logging:
+  file:
+    path: d:\log\scw-user
+  level:
+    com:
+      offcn: debug
+
+#      自定义参数
+sms:
+  host: http://dingxin.market.alicloudapi.com
+  path: /dx/sendSms
+  appcode: 374fa5d63ed6415ca5441d3faa36a8a4
